@@ -1,0 +1,31 @@
+- Install NeoVim latest version
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+sudo mv ./nvim.appimage /usr/bin/nvim
+
+- (Linux) install Terminator
+sudo apt install -y terminator
+
+- Install zsh
+sudo apt install -y zsh
+# chsh -s $(which zsh)
+
+- Install Oh My Zsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+- Install nerdfonts
+# wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/RobotoMono.zip
+unzip RobotoMono.zip -d ~/.fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+mv Meslo* ~/.fonts
+fc-cache -fv
+
+- Set the font in Terminator 
+Terminator: Open Preferences using the context menu. Under Profiles select the General tab (should be selected already), uncheck Use the system fixed width font (if not already) and select MesloLGS NF Regular. Exit the Preferences dialog by clicking Close.
+
+- Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
